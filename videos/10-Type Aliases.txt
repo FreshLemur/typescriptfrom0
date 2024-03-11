@@ -1,0 +1,18 @@
+Тепер про Type, ось синтаксис:
+    type User = {
+        name: string;
+        email: string;
+        isActive: boolean;
+    };
+    function createUser(user: User): User {
+        return { name: "", email: "", isActive: true };
+    }
+    createUser({ name: "Dmytro", email: "", isActive: true });
+    Ось такий у них синтаксис. Це створюється для того, щоб не передавати багато і багато аргументів в функцію. Або ж
+    якщо потрібно в кілька функцій передавати одній й ті самі аргументи. DRY - не повторюй себе. Тому це скорочує код.
+
+Також можна робити ось таке скорочення, по бажанню:
+type boo = boolean;
+
+Також є аналог - Interface. Про це можна почитати в документації: 
+https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-aliases

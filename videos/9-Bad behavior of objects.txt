@@ -1,0 +1,27 @@
+Синтаксис функції серед аргументів, де ми ставимо строгу типізацію даних на аргументи функції:
+    function createUser({ name: string, isPaid: boolean }) {}
+    Це передача об'єкту і виклик функції, яка буде правильною для аргументів.
+    createUser({ name: "Dmytro", isPaid: true });
+
+    Ми не можемо передати значення, котре ми не додали серед аргуметів:
+        createUser({ name: "Dmytro", isPaid: false, email: "h@h.com" });
+        Буде помилка.
+
+        Проте ми можемо передавати об'єкт в аргументи і не буде помилки:
+            function createUser({ name: string, isPaid: boolean }) {}
+            let newUser = { name: "Dmytro", isPaid: false, email: "h@h.com" };
+            createUser(newUser);
+            Помилки немає.
+        Це мінус TS.
+
+Синтаксис функції, яка створює строгу типізацію об'єктів на return:
+    function createCourse(): {} {
+        return {};
+    }
+
+    Те саме, тільки тепер ми вже повертаємо об'єкт з властивостями:
+        function createCourse(): { name: string; price: number } {
+            return { name: "Dmytro", price: 12313 };
+        }
+    
+

@@ -1,0 +1,50 @@
+Об'єднання СТТ в змінній:
+    let score: number | string = 33;
+    score = 1;
+    score = "1232131";
+    score = true; - виводить помилку.
+    В цьому випадку в змінній можливий або number, або string.
+
+Створення змінної на основі типів:
+    type User = {
+        name: string;
+        id: number;
+    };
+    type Admin = {
+        username: string;
+        id: number;
+    };
+    let dmytro: User | Admin = {
+        name: "Dmytro",
+        id: 334,
+        username: "12313",
+        code: "mistake", - помилка.
+    };
+    В цьому випадку в змінній dmytro можливі такі властивості: name, id, username. Властивість code заборонена,
+        тому виб'є помилку.
+
+Об'єднання СТТ в функції: 
+    function getDbId(id: number | string) {
+        // id.toLowerCase()
+        if (typeof id === "string") {
+            id.toLowerCase();
+        } else {
+            id.toFixed;
+        }
+    }
+    Закоментований рядок коду виводить помилку, тому що повинна бути або number, або string. В даному випадку
+        створена умова, при якій використовуються методи string, якщо умова правильна, тобто якщо це string і
+        використовується числовий метод .toFixed, якщо умова не правильна і заходить в блок else.
+
+Об'єднання СТТ в масиві:
+    const data: (string | number)[] = [
+        "What is looove",
+        129139129,
+        "Baby don't hurt me.",
+    ];
+    Це єдиний правильний синтаксис СТТ для типів, який не виводить помилку і є синтаксично правильним.
+
+Простенький практичний приклад використання об'єднання:
+    let seatAllotment: "aisle" | "middle" | "window";
+    seatAllotment = "aisle";
+    seatAllotment = "center"; - виводить помилку, тому що таке значення не можливе.

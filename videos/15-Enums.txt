@@ -1,0 +1,45 @@
+Проблемою цього може бути переповнення стеку, та дуже великий код в JS при компіляції. Вирішенням цієї проблеми 
+    може стати просте додавання const перед enum.
+
+Ось приклад використання Enums:
+// Приклад enum для визначення днів тижня
+enum DaysOfWeek {
+  Monday,
+  Tuesday,
+  Wednesday,
+  Thursday,
+  Friday,
+  Saturday,
+  Sunday,
+}
+
+// Функція, яка використовує enum
+function getDayMessage(day: DaysOfWeek): string {
+  switch (day) {
+    case DaysOfWeek.Monday:
+      return 'Понеділок';
+    case DaysOfWeek.Tuesday:
+      return 'Вівторок';
+    case DaysOfWeek.Wednesday:
+      return 'Середа';
+    case DaysOfWeek.Thursday:
+      return 'Четвер';
+    case DaysOfWeek.Friday:
+      return 'П'ятниця';
+    case DaysOfWeek.Saturday:
+      return 'Субота';
+    case DaysOfWeek.Sunday:
+      return 'Неділя';
+    default:
+      return 'Невідомий день тижня';
+  }
+}
+
+// Використання функції
+const today: DaysOfWeek = DaysOfWeek.Wednesday;
+const todayMessage: string = getDayMessage(today);
+
+console.log(`Сьогодні: ${todayMessage}`);
+Посилання на GPT пояснення: https://chat.openai.com/c/3e94215f-5db2-4607-9601-aec74a65c901
+
+

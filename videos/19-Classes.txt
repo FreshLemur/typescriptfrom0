@@ -1,0 +1,14 @@
+class User {
+  email: string; - потрібно, щоб не було помилок, просто синтаксис.
+  name: string; - потрібно, щоб не було помилок, просто синтаксис.
+  readonly city: string = "Kyiv"; - властивість, яка не є обов'язковою при створенні нового елементу на основі цього класу. Тому що в неї під час створення вже створене значення - "Kyiv".
+  constructor(email: string, name: string) {
+    this.email = email;
+    this.name = name;
+  }
+}
+
+const user1 = new User("adajwdila@.com", "hello");
+console.log(user1);
+
+Це приклад створення класів в TS.

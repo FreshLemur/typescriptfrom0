@@ -1,2 +1,10 @@
 "use strict";
-console.log("typescript is here awdad");
+class User {
+  constructor(email, name) {
+    this.city = "Kyiv";
+    this.email = email;
+    this.name = name;
+  }
+}
+const user1 = new User("adajwdila@.com", "hello");
+console.log(user1);

@@ -1,0 +1,28 @@
+Ось так ми задаємо типи для масивів:
+    const superHeros: string[] = [];
+    superHeros.push("string value");
+    superHeros.push(true); - помилка.
+
+    const anotherArraySyntax: Array<number> = [];
+    anotherArraySyntax.push(123);
+    anotherArraySyntax.push("Wrong value"); - помилка.
+
+    1 і 2 просто відрізняються в синтаксисі, проте це та сама строга типізація даних. В першому випадку можлива
+        лише string, в другому number.
+
+Ось надання СТТ заснованих на type об'єкті:
+    type User = {
+        name: string;
+        isActive: boolean;
+    };
+    const allUsers: User[] = [];
+    allUsers.push({ name: "awda", isActive: true });
+    В цьому випадку масив створений на основі об'єкту, тому ми повинні передати всередину нього об'єкт з такою
+        строгою типізацією даних.
+
+Також надання СТТ, котра змушує нас створювати масив всередині масиву:
+    const rgbModels: number[][] = [
+        [255, 255, 255],
+        [255, 255, 255],
+        [255, 255, 255],
+    ];

@@ -1,0 +1,60 @@
+readonly, ?, &.
+
+Ось як виглядає синтаксис readonly:
+    type User = {
+        readonly _id: string;
+        name: string;
+        email: string;
+        isActive: boolean;
+    };
+
+    let myUser: User = {
+        _id: "1245",
+        name: "h",
+        email: "gmail.com",
+        isActive: true,
+    };
+
+    myUser.email = "meta.ua";
+    myUser._id = "123"; - виб'є помилку, тому що цю властивість можна тільки читати, її не можна змінювати.
+
+Синтаксис ?:
+    type User = {
+        readonly _id: string;
+        name: string;
+        email: string;
+        isActive: boolean;
+        creditcardDetails?: number; - знак питання означає, що ця властивість не є обов'язковою.
+            Тобто, вона може використовуватися, а може і не використовуватися. Якщо немає ? в цьому випадку то буде
+            помилка, тому що він буде обов'язковим до використання.
+    };
+
+    let myUser: User = {
+        _id: "1245",
+        name: "h",
+        email: "gmail.com",
+        isActive: true,
+    };
+
+Синтаксис &:
+    type cardNumber = {
+        cardNumber: string;
+    };
+
+    type cardDate = {
+        cardDate: string;
+    };
+
+    type cardDetails = cardNumber &
+        cardDate & {
+            cvv: number;
+        };
+
+    let userCreditCard: cardDetails = {
+        cardNumber: "1234 5182 2813 9212",
+        cardDate: "1801",
+        cvv: 159,
+    };
+    В цьому випадку ми стоврили type, об'єднавши 2 типи: cardNumber та cardDate, а також об'єднали з об'єктом, який
+        ми створили, а саме cvv. Завдяки цьому ми створили об'єкт з 3 властивостями.
+

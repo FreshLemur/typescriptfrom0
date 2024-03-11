@@ -1,0 +1,26 @@
+Приклад reopenInterface чи просто додавання нових даних в нього:
+  interface User {
+    email: string;
+  } - створення interface
+
+  interface User {
+    githubToken: string;
+  } - розшинення interface
+  Type не може бути розширеним чи зміненим.
+
+  interface Example {
+    example: boolean;
+  } - створення ще одного interface
+  
+  interface Admin extends User, Example { 
+    role: "admin" | "ta" | "learner";
+  } - створення interface на основі двох попередніх створених interface.
+  В type все теж саме, тільки замість extends пишеться &.
+
+  const dmytroa: Admin = {
+    githubToken: "12312",
+    email: "13213",
+    role: "admin",
+    example: true,
+  }; 
+  Цей код просто є СТТ, за interface Admin, тому потрібно додати всі властивості, які були в interface.

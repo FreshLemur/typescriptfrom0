@@ -1,0 +1,30 @@
+Код для пояснення interface.
+
+interface User {
+  readonly dbId: number;
+  email: string;
+  userId: number;
+  googleId?: string;
+  //   startTrail: () => string;
+  startTrail(): string;
+  getCoupon(couponName: string): number;
+}
+
+const dmytroa: User = {
+  dbId: 12313,
+  email: "13213",
+  userId: 12312,
+  startTrail: () => {
+    return "1321";
+  },
+  getCoupon(name: "Dmytro") {
+    return 12321;
+  },
+};
+
+Це майже теж саме, що й type. Різниця в тому, що ми можемо створювати методи. Також є ще кілька відмінностей від type,
+    проте вони будуть в 17 відео.
+    Про синтаксис методів. Є 2 синтаксиси, 1 закоментований, 2 ні. Різниця між ними лише синтаксична. В методах
+    ми вказуємо те, що будемо повертати. Можна вказати void - не повертати нічого. В аргументах ми вказуємо лише
+    як приклад того, що має там бути. Наприклад couponName, ми замість нього поставили name.
+

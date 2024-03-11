@@ -1,0 +1,10 @@
+Основні типи, які є в TS:
+    Number, String, Boolean,
+    Null, Undefined, Void,
+    Object, Array, Tuples ...
+    Any - тип, дуже схожий на JS, будь який.
+
+Синтаксис визначення типу:
+    let greetings: string = "Hello world";
+
+Сайт з типами: https://www.typescriptlang.org/docs/handbook/2/everyday-types.html
