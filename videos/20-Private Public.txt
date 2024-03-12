@@ -1,0 +1,105 @@
+// class User {
+//   public email: string;
+//   private name: string;
+//   readonly city: string = "Kyiv";
+//   constructor(email: string, name: string) {
+//     this.email = email;
+//     this.name = name;
+//   }
+// }
+
+// const user1 = new User("adajwdila@.com", "hello");
+// console.log(user1);
+⬆ - код, який використовує public та private, проте є більш зручніший код, який написаний нижче. Також, слід зазначити, що іноді можна замість private name зустріти #name - це одне й те саме, просто синтаксис JS.
+
+class User {
+  readonly city: string = "Kyiv";
+  constructor(
+    public email: string,
+    public name: string,
+    private userID: string
+  ) {
+    this.email = email;
+    this.name = email;
+    this.userID = userID;
+  }
+}
+
+const user1 = new User("adjilwa@gmail.com", "hello", "awda");
+console.log(user1);
+Цей код є фактично майже тим самим, що й зверху, за умови виключення з нього userID. Проте він має свій "синтаксичний цукор", через що його читання стає більш зручнішим.
+
+Пояснення про Private, Public та Protect від GPT:
+
+У TypeScript (TS), модифікатори доступу `public`, `private` і `protected` використовуються для контролю доступу до членів класів.
+
+1. **public**: Цей модифікатор означає, що член класу (метод або властивість) доступний ззовні класу.
+
+   Приклад:
+   ```typescript
+   class Car {
+       public brand: string;
+
+       constructor(brand: string) {
+           this.brand = brand;
+       }
+
+       public honk(): string {
+           return "Beep beep!";
+       }
+   }
+
+   const myCar = new Car("Toyota");
+   console.log(myCar.brand); // "Toyota"
+   console.log(myCar.honk()); // "Beep beep!"
+   ```
+
+2. **private**: Цей модифікатор обмежує доступ до членів класу лише в межах самого класу. Член, який визначено як `private`, не може бути доступний ззовні класу.
+
+   Приклад:
+   ```typescript
+   class Car {
+       private mileage: number = 0;
+
+       drive(distance: number): void {
+           this.mileage += distance;
+       }
+
+       getMileage(): number {
+           return this.mileage;
+       }
+   }
+
+   const myCar = new Car();
+   myCar.drive(100);
+   // Однак наступний рядок викличе помилку компіляції,
+   // оскільки ми намагаємось отримати доступ до приватного члена класу.
+   // console.log(myCar.mileage);
+   ```
+
+3. **protected**: Цей модифікатор подібний до `private`, але член з ним може бути доступний у підкласах.
+
+   Приклад:
+   ```typescript
+   class Vehicle {
+       protected speed: number = 0;
+
+       accelerate(increment: number): void {
+           this.speed += increment;
+       }
+   }
+
+   class Car extends Vehicle {
+       drive(): void {
+           this.accelerate(10);
+       }
+   }
+
+   const myCar = new Car();
+   myCar.drive();
+   // Однак наступний рядок викличе помилку компіляції,
+   // оскільки змінна speed є захищеним членом.
+   // console.log(myCar.speed);
+   ```
+
+Використання правильних модифікаторів доступу допомагає забезпечити безпеку та правильну роботу вашого коду, контролюючи, як класи та їх члени можуть бути використані ззовні.

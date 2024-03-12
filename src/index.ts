@@ -1,6 +1,6 @@
 // class User {
-//   email: string;
-//   name: string;
+//   public email: string;
+//   private name: string;
 //   readonly city: string = "Kyiv";
 //   constructor(email: string, name: string) {
 //     this.email = email;
@@ -11,20 +11,18 @@
 // const user1 = new User("adajwdila@.com", "hello");
 // console.log(user1);
 
-class Book {
-  title: string;
-  author: string;
-  publicYear: number;
-
-  constructor(title: string, author: string, publicYear: number) {
-    this.title = title;
-    this.author = author;
-    this.publicYear = publicYear;
+class User {
+  readonly city: string = "Kyiv";
+  constructor(
+    public email: string,
+    public name: string,
+    private userID: string
+  ) {
+    this.email = email;
+    this.name = email;
+    this.userID = userID;
   }
 }
 
-const bookByOlenka = new Book(
-  "Dinnew with him",
-  "Olena Ruszinskya Oleksyyvna",
-  2093
-);
+const user1 = new User("adjilwa@gmail.com", "hello", "awda");
+console.log(user1);
