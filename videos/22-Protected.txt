@@ -1,0 +1,33 @@
+class User {
+  protected _courseCount = 1; - властивість наслідується.
+  // private _courseCount = 1; - властивість не наслідується.
+  readonly city: string = "Kyiv";
+
+  constructor(public email: string, public name: string) {}
+
+  get getAppleEmail(): string {
+    return `apple ${this.email}`;
+  }
+
+  get courseCount(): number {
+    return this._courseCount;
+  }
+
+  // set courseCount(courseNumber): void {
+  // }
+  set courseCount(courseNumber) {
+    if (courseNumber <= 1) {
+      throw new Error("Course count should be more than 1");
+    }
+    this._courseCount = courseNumber;
+  }
+}
+
+class SubUser extends User {
+  isFamily: boolean = true;
+  changeCourseCount() {
+    this._courseCount = 4;
+  }
+}
+
+В цьому випадку клас SubUser наслідує клас User. Різниця між Protected і Private дуже проста. protected створений для того, щоб ми могли передавати цю властивість класу, який перенаслідує нащ клас. А якщо там буде private. то ця властивість не передасться.

@@ -1,5 +1,6 @@
 class User {
-  private _courseCount = 1;
+  protected _courseCount = 1;
+  // private _courseCount = 1;
   readonly city: string = "Kyiv";
 
   constructor(public email: string, public name: string) {}
@@ -22,7 +23,9 @@ class User {
   }
 }
 
-const user1 = new User("awdliaw@gmail.com", "awlidjajiwld");
-console.log(user1);
-user1.courseCount = 15;
-user1.courseCount = -1;
+class SubUser extends User {
+  isFamily: boolean = true;
+  changeCourseCount() {
+    this._courseCount = 4;
+  }
+}
