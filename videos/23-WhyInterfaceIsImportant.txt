@@ -1,0 +1,34 @@
+interface TakePhoto {
+  cameraMode: string;
+  filter: string;
+  burst: number;
+}
+
+class Instagram implements TakePhoto {
+  constructor(
+    public cameraMode: string,
+    public filter: string,
+    public burst: number
+  ) {}
+}
+
+interface Story {
+  simpleMethod(): void;
+}
+
+class YouTube implements TakePhoto, Story {
+  constructor(
+    public cameraMode: string,
+    public filter: string,
+    public burst: number
+  ) {}
+
+  simpleMethod(): void {
+    console.log("Yeeee, you did it, maaaaan!");
+  }
+}
+
+const newYoutubeUser = new YouTube("8px", "HD", 10);
+newYoutubeUser.simpleMethod();
+
+Ось код, який показує, чому є важливим Interface. Його сенс полягає в тому, що ми слідуємо "протоколу", який створили. Тому коли ми наслідуємо наш Interface використоувючи implements, ми повинні включити всі властивості та методи, які були в Interface. Таким чином створюється протокол, який не можна порушувати, завдяки чому в коді буде набагато менше помилок. Ще одною з переваг є те, що ми можемо розширювати Interface наслідуючи його в наслідуємих класах.
