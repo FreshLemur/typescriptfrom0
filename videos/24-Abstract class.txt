@@ -1,0 +1,49 @@
+abstract class TakePhoto {
+  constructor(public cameraMode: string, public filter: string) {}
+
+  abstract getSepia(): void;
+  getReelTime(): number {
+    // some complex calculation
+    return 8;
+  }
+}
+
+class Instagram extends TakePhoto {
+  constructor(
+    public cameraMode: string,
+    public filter: string,
+    public burst: number
+  ) {
+    super(cameraMode, filter);
+  }
+  getSepia(): void {
+    console.log("Sepia");
+  }
+}
+
+const ld = new Instagram("123", "123", 321);
+ld.getReelTime();
+ld.getSepia();
+
+Абстрактні класи створені для того, щоб передавати свої властивості та методи тільки в інші класи, котрі наслідуватимуть їх. Якщо намагатися це робити напряму, через абстрактний клас до якоїсь змінної, то буде помилка, тому що це просто не є можливим. Тому потрібно спочатку створити абстрактний клас, потім наслідувати його і вже клас, який наслідує можна використовувати для створення змінної. super() є обов'язковим. Це для того, щоб правильно наслідувати властивості з constructor батьківського елементу дочірньому constructor. Це є обов'язковим, такий синтаксис. 
+
+Пояснення від GPT щодо super():
+
+У TypeScript ключове слово super() використовується для виклику конструктора батьківського класу з конструктора дочірнього класу під час його ініціалізації.
+
+Коли клас успадковує інший клас, він може мати свій власний конструктор. Однак, якщо клас-потомок має конструктор, то він повинен спочатку викликати конструктор свого батьківського класу за допомогою super(), щоб належним чином ініціалізувати всі властивості, що успадковуються від батьківського класу.
+
+Наприклад, у наступному коді клас Rectangle успадковує клас Shape, і в його конструкторі викликається конструктор класу Shape за допомогою super():
+class Shape {
+    constructor(protected color: string) {}
+}
+
+class Rectangle extends Shape {
+    constructor(color: string, private width: number, private height: number) {
+        super(color); // Викликаємо конструктор Shape з параметром color
+    }
+}
+
+const rectangle = new Rectangle("blue", 5, 10);
+
+У цьому прикладі конструктор класу Rectangle викликає конструктор класу Shape з параметром color, щоб ініціалізувати властивість color, яка успадкована від класу Shape.
