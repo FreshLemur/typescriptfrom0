@@ -15,3 +15,5 @@ function isAdminAccount(account: User | Admin) {
   } else {
   }
 }
+
+Отже, слово in. Ми перевіряємо чи є isAdmin в account. account в нас буде або interface User, або interface Admin. Якщо він є, то умова пройдена.
