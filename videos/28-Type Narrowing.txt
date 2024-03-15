@@ -1,0 +1,10 @@
+function printLength(input: string | number): void {
+  if (typeof input === "string") {
+    // В цьому блоку TypeScript знає, що `input` має тип `string`
+    console.log(input.length);
+  } else {
+    // В цьому блоку TypeScript знає, що `input` має тип `number`
+    console.log("Input is a number");
+  }
+}
+Все досить просто, навіть пояснювати не треба.
