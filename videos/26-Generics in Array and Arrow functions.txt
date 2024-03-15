@@ -1,0 +1,19 @@
+function getSearchProducts<T>(products: T[]): T {
+  // do some database operations
+  const myIndex = 3;
+  return products[myIndex];
+}
+
+const getMoreSearchProducts = <T>(products: T[], prices: number): T => {
+  // do some database operations
+  return products[prices];
+};
+
+Ось це приклад generics для масивів. 1 функція це звичайна, оголошена за ключовим словом function. Друга функція це стрілкова, проте вона також має generics. 
+Тут можна порівняти як використовується звичайна функція та стрілкова з generics.
+
+Також, в GPT я бачив, що в кінці, при return також обов'язково ставлять [], щоб показати масив. Тобто:
+const getMoreSearchProducts = <T>(products: T[], prices: number): T[] => {
+  // do some database operations
+  return products[prices];
+};
