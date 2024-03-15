@@ -1,0 +1,48 @@
+interface Database {
+  connection: string;
+  username: string;
+  password: string;
+}
+
+function anotherFunction<T, U extends Database>(valOne: T, valTwo: U): object {
+  return {
+    valOne,
+    valTwo,
+  };
+}
+
+Це функція від нього, ось пояснення про неї від GPT:
+
+У цьому коді ми маємо функцію anotherFunction, яка приймає два параметри: valOne типу T і valTwo типу U, де U розширює інтерфейс Database.
+
+T є загальним типом, який може бути будь-яким.
+U обмежений (constraint) типом, який розширює інтерфейс Database, тобто будь-який тип, який має всі властивості connection, username і password, які є рядковими значеннями.
+Функція повертає об'єкт, який містить обидва передані значення valOne і valTwo. При цьому об'єкт буде мати тип object, оскільки ми не вказали конкретний тип для поверненого значення.
+
+Цей підхід дає нам гнучкість, оскільки ми можемо передавати будь-які типи для valOne, але valTwo має обмеження на те, щоб бути об'єктом, який має всі властивості інтерфейсу Database. Це дозволяє нам безпечно використовувати функцію, забезпечуючи при цьому типову перевірку.
+
+Ось приклад використання цієї функції для GPT:
+
+interface Database {
+    connection: string;
+    username: string;
+    password: string;
+}
+
+function anotherFunction<T, U extends Database>(valOne: T, valTwo: U): object {
+    return {
+        valOne,
+        valTwo,
+    };
+}
+
+// Приклад використання функції для створення об'єкту з даними користувача та з'єднанням з базою даних
+const userData = { id: 1, name: "John Doe" }; // Дані користувача
+const databaseInfo = { connection: "localhost", username: "user", password: "password" }; // Дані для з'єднання з базою даних
+
+const result = anotherFunction(userData, databaseInfo);
+console.log(result); // Виведе об'єкт, що містить дані користувача та інформацію для з'єднання з базою даних
+
+
+
+

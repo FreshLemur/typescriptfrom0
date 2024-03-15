@@ -17,3 +17,5 @@ const getMoreSearchProducts = <T>(products: T[], prices: number): T[] => {
   // do some database operations
   return products[prices];
 };
+
+Ще деякі люди ставлять <T,>, зокрема в React, щоб показати, що це не компонент, а generics.
